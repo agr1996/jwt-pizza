@@ -6,7 +6,7 @@ test('home page', async ({ page }) => {
   expect(await page.title()).toBe('JWT Pizza');
 });
 
-test('purchase with login', async ({ page }) => {
+test('purchase with login', async ({ page }) => { //test works locally but not in CI pipeline
     await page.route('*/**/api/order/menu', async (route) => {
       const menuRes = [
         { id: 1, title: 'Veggie', image: 'pizza1.png', price: 0.0038, description: 'A garden of delight' },
