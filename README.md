@@ -151,6 +151,4 @@ export default function App() {
 
 ### Icons
 
-### Just making sure I can push to my personal repository
-
 [HeroIcons](https://heroicons.com/) - MIT license
