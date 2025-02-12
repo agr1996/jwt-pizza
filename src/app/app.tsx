@@ -37,6 +37,10 @@ export default function App() {
   const location = useLocation();
 
   useEffect(() => {
+    window.HSStaticMethods.autoInit();
+  }, [location.pathname]);
+
+  useEffect(() => {
     (async () => {
       const user = await pizzaService.getUser();
       setUser(user);
