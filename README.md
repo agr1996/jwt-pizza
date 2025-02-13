@@ -151,4 +151,6 @@ export default function App() {
 
 ### Icons
 
+### trying to get coverage working
+
 [HeroIcons](https://heroicons.com/) - MIT license
