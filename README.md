@@ -1,8 +1,7 @@
+
 # 🍕 JWT Pizza
 
-![Coverage badge](https://badge.cs329.click/badge/agr1996/jwtpizzacoverage)
-
-[![CI Pipeline](https://github.com/agr1996/jwt-pizza/actions/workflows/ci.yml/badge.svg)](https://github.com/agr1996/jwt-pizza/actions/workflows/ci.yml)
+![Coverage badge](https://badge.cs329.click/badge/accountId/jwtpizzacoverage)
 
 A JSON Web Token, or [JWT](https://jwt.io/introduction), (pronounced JOT) is a digitally signed transfer of information using JSON notation. Because you can validate the digital signature you can buy JWT pizzas with confidence.
 
@@ -12,8 +11,7 @@ You can see a working example of the application at [pizza.cs329.click](https://
 
 ## Running locally
 
-1. Fork this repository
-   ![Fork repo](forkRepo.png)
+1. Fork this repository ![Fork repo](forkRepo.png)
 
    and then clone the fork from your GitHub account to your development environment.
 
@@ -150,7 +148,5 @@ export default function App() {
 ```
 
 ### Icons
-
-### trying to get coverage working
 
 [HeroIcons](https://heroicons.com/) - MIT license
