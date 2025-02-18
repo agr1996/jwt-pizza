@@ -98,3 +98,21 @@ test('purchase with login', async ({ page }) => {
   // Check balance
   await expect(page.getByText('0.008')).toBeVisible();
 });
+
+test('Register', async ({ page }) => {
+  await page.route('*/**/api/auth', async (route) => {
+    const regReq = { email: 'foo@jwt.com', password: 'foo' };
+    const regRes = { user: { id: 99, name: 'foobar', email: 'foo@jwt.com', roles: [{ role: 'diner' }] }, token: 'foobar' };
+    expect(route.request().method()).toBe('POST');
+    expect(route.request().postDataJSON()).toMatchObject(regReq);
+    await route.fulfill({ json: regRes });
+  });
+  await page.goto('http://localhost:5173/');
+  await page.getByRole('link', { name: 'Register' }).click();
+  await page.getByPlaceholder('Full name').click();
+  await page.getByPlaceholder('Full name').fill('foobar');
+  await page.getByPlaceholder('Email address').fill('foo@jwt.com');
+  await page.getByPlaceholder('Password').fill('foo');
+  await page.getByRole('button', { name: 'Register' }).click();
+  await expect(page.getByText("The web's best pizza", { exact: true })).toBeVisible();
+});
