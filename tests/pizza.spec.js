@@ -254,4 +254,37 @@ test('non-interactive pages', async ({ page }) => {
   await expect(page.getByText('The secret sauce', { exact: true })).toBeVisible();
 });
 
+test('docs', async ({ page }) => {
+  await page.route('*/**/api/docs', async (route) => {
+    await route.fulfill({
+      json: {
+        version: '20240725.172710',
+        endpoints: [
+          {
+            method: 'POST',
+            path: '/api/auth',
+            description: 'Register a new user',
+            example: 'curl -X POST localhost:3000/api/auth -d \'{"name":"pizza diner", "email":"d@jwt.com", "password":"diner"}\' -H \'Content-Type: application/json\'',
+            response: {
+              user: {
+                id: 2,
+                name: 'pizza diner',
+                email: 'd@jwt.com',
+                roles: [
+                  {
+                    role: 'diner',
+                  },
+                ],
+              },
+              token: 'tttttt',
+            },
+          },
+        ],
+      },
+    });
+  });
+
+  await page.goto('http://localhost:5173/docs');
+});
+
 
