@@ -151,4 +151,4 @@ export default function App() {
 ### Icons
 
 [HeroIcons](https://heroicons.com/) - MIT license
-### hello from the otherside
+### hello world
