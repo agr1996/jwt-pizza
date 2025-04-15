@@ -21,18 +21,6 @@
 
 ---
 
-### April 12th, 2025 Incident
-
-| Item | Result |
-|------|--------|
-| Date | April 12, 2025 |
-| Target | pizza.jwtpizza.click |
-| Classification | 5 |
-| Severity | 3 |
-| Description | With franchisee access, deleted stores pertaining to default franchisee and added a fake store. |
-| Image | ![franchisee access](franchisee.png) |
-| Corrections | I changed the password of both the admin and the franchisee users to prevent unauthorized access to them |
-
 ## Self Attack: Andrew Redd
 
 ### Personal successful attack record
@@ -66,9 +54,17 @@ I learned from my personal penetration testing what ways I can protect against a
 
 ## Peer Attack: Vincent Reiley attacking Andrew Redd
 
-### Peer successful attack record
+### April 12th, 2025 Incident
 
-TODO
+| Item | Result |
+|------|--------|
+| Date | April 12, 2025 |
+| Target | pizza.voodle.click |
+| Classification | 5 |
+| Severity | 3 |
+| Description | With franchisee access, deleted stores pertaining to default franchisee and added a fake store. |
+| Image | ![franchisee access](franchisee.png) |
+| Corrections | I changed the password of both the admin and the franchisee users to prevent unauthorized access to them |
 
 ## Peer Attack: Andrew Redd attaching Vincent Reiley
 
@@ -97,3 +93,11 @@ TODO
 | Corrections    | Sanitize user inputs. I attempted some sql injection to add a value of 1 for the user ID to make a new administrator but due to my unfamiliarity with sql injection I was unable to exploit the vulnerability in the time we agreed on for our peer testing|
 
 ## Conclusion
+
+### Personal Findings: Vincent Reiley
+
+I learned that one of the easiest ways to get in at least for jwtpizza was to access it through default users. My partner’s approach and mine was initially the same: Access the admin user. However, I hadn’t changed mine, whereas Andrew had. Not having changed that left a huge vulnerability in my jwtpizza. My second attempt attacked the default franchisee user, through which I was able to delete those stores. I learned that if default users are left long-term, they can cause some serious problems, and should probably go through some form of two-factor authentication or regular password changes.
+
+### Personal Findings: Andrew Redd
+
+This was a really good thought exercise of how to strengthen an application. I realized that penetration testing requires creativity thinking of all the ways someone may exploit a vulnerability. I had changed the default Admin password to prevent my partner from from having administrator access, but I forgot to change one of the default franchise owner accounts. Vincent was able to exploit this oversight and gained a majority of access to my application and deleted franchises and users. Even though I had disabled the edit user function I had oversight on other accounts. It also isn't the easiest to exploit vulnerabilities even if you are aware of them. I attempted to figure out some sql injection to change another account to an administrator but failed because I wasn't sure how to enter it in properly to the field. 
